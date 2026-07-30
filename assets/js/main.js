@@ -1,26 +1,26 @@
 /* =========================================================
-   Vice Wave Coaching — behaviour
-   - Injects brand/social from config.js
-   - Handles waitlist signups -> Supabase (insert-only via RLS)
+   Repwave — shared behaviour for all pages
+   - Injects brand/social/creator data from config.js
+   - Generic form wiring -> Supabase PostgREST (insert-only RLS)
+   - Page-specific forms are wired by ID; missing forms are skipped
    ========================================================= */
 (function () {
   "use strict";
 
-  var cfg = window.VW_CONFIG || {};
+  var cfg = window.RW_CONFIG || {};
   var sb = cfg.supabase || {};
+  var tables = sb.tables || {};
 
   /* ---------- Small helpers ---------- */
   function $(sel, root) { return (root || document).querySelector(sel); }
   function $all(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
 
-  /* ---------- Fill brand + tagline + year ---------- */
+  /* ---------- Brand + tagline + year injection ---------- */
   if (cfg.brand) $all("[data-brand]").forEach(function (el) { el.textContent = cfg.brand; });
   if (cfg.tagline) $all("[data-tagline]").forEach(function (el) { el.textContent = cfg.tagline; });
-  var yearEl = $("#year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+  $all("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
-  /* ---------- Social links ---------- */
-  var social = cfg.social || {};
+  /* ---------- Social link builders ---------- */
   var socialMeta = {
     tiktok: { label: "TikTok", short: "TT" },
     instagram: { label: "Instagram", short: "IG" },
@@ -32,38 +32,53 @@
     return key === "email" ? "mailto:" + val : val;
   }
 
-  // Coach section: text links
-  var coachSocial = $("#coach-social");
-  if (coachSocial) {
-    Object.keys(socialMeta).forEach(function (key) {
-      var val = social[key];
-      if (!val) return;
-      var a = document.createElement("a");
-      a.className = "social-link";
-      a.href = socialHref(key, val);
-      if (key !== "email") { a.target = "_blank"; a.rel = "noopener"; }
-      a.innerHTML = "<span aria-hidden='true'>" + socialMeta[key].short + "</span> " + socialMeta[key].label;
-      coachSocial.appendChild(a);
-    });
-  }
+  // Fill any container marked data-social-links="platform" or "victor"
+  // with pill links; data-social-style="icon" renders compact badges.
+  $all("[data-social-links]").forEach(function (container) {
+    var who = container.getAttribute("data-social-links");
+    var links = who === "platform"
+      ? (cfg.social || {})
+      : ((cfg.creators && cfg.creators[who] && cfg.creators[who].social) || {});
+    var iconStyle = container.getAttribute("data-social-style") === "icon";
 
-  // Footer: icon badges
-  var footerSocial = $("#footer-social");
-  if (footerSocial) {
     Object.keys(socialMeta).forEach(function (key) {
-      var val = social[key];
+      var val = links[key];
       if (!val) return;
       var a = document.createElement("a");
       a.href = socialHref(key, val);
-      a.title = socialMeta[key].label;
-      a.setAttribute("aria-label", socialMeta[key].label);
       if (key !== "email") { a.target = "_blank"; a.rel = "noopener"; }
-      a.textContent = socialMeta[key].short;
-      footerSocial.appendChild(a);
+      if (iconStyle) {
+        a.title = socialMeta[key].label;
+        a.setAttribute("aria-label", socialMeta[key].label);
+        a.textContent = socialMeta[key].short;
+      } else {
+        a.className = "social-link";
+        a.innerHTML = "<span aria-hidden='true'>" + socialMeta[key].short + "</span> " + socialMeta[key].label;
+      }
+      container.appendChild(a);
     });
+  });
+
+  /* ---------- Creator data injection (victor page) ---------- */
+  var victor = (cfg.creators || {}).victor;
+  if (victor) {
+    $all("[data-creator-name]").forEach(function (el) { el.textContent = victor.name; });
+    $all("[data-creator-handle]").forEach(function (el) { el.textContent = victor.handle; });
+    var statRow = $("[data-creator-stats]");
+    if (statRow && victor.stats) {
+      victor.stats.forEach(function (s) {
+        var li = document.createElement("li");
+        var strong = document.createElement("strong");
+        strong.textContent = s.value;
+        var span = document.createElement("span");
+        span.textContent = s.label;
+        li.appendChild(strong); li.appendChild(span);
+        statRow.appendChild(li);
+      });
+    }
   }
 
-  /* ---------- Waitlist submission ---------- */
+  /* ---------- Form submission core ---------- */
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function backendReady() {
@@ -71,9 +86,9 @@
            sb.key.indexOf("YOUR_") !== 0;
   }
 
-  // Insert one signup via Supabase PostgREST. Returns a Promise.
-  function submitSignup(payload) {
-    var endpoint = sb.url.replace(/\/$/, "") + "/rest/v1/" + (sb.table || "waitlist");
+  // Insert one row into `table` via Supabase PostgREST. Returns a Promise.
+  function submitRow(table, payload) {
+    var endpoint = sb.url.replace(/\/$/, "") + "/rest/v1/" + table;
     return fetch(endpoint, {
       method: "POST",
       headers: {
@@ -85,7 +100,7 @@
       body: JSON.stringify(payload),
     }).then(function (res) {
       if (res.ok) return { ok: true };
-      // 409 = unique violation -> already on the list
+      // 409 = unique violation -> this email already signed up
       if (res.status === 409) return { ok: true, duplicate: true };
       return res.text().then(function (t) {
         var msg = t;
@@ -95,7 +110,8 @@
     });
   }
 
-  // Wire up a form. `opts.onSuccess` runs after a successful insert.
+  // Wire up a form.
+  // opts: { table, statusEl, source, buildPayload(form, email), onSuccess(data) }
   function wireForm(form, opts) {
     if (!form) return;
     opts = opts || {};
@@ -122,90 +138,144 @@
         return;
       }
 
-      var nameEl = form.querySelector("input[name='name']");
-      var goalEl = form.querySelector("select[name='goal']");
-      var payload = {
-        email: email,
-        name: nameEl && nameEl.value.trim() ? nameEl.value.trim() : null,
-        goal: goalEl && goalEl.value ? goalEl.value : null,
-        source: opts.source || "website",
-        user_agent: navigator.userAgent,
-      };
+      // Per-form required fields beyond email (marked data-required)
+      var missing = null;
+      $all("[data-required]", form).forEach(function (el) {
+        if (!missing && !el.value.trim()) missing = el;
+      });
+      if (missing) {
+        setStatus("Please fill in the required fields.", "error");
+        missing.focus();
+        return;
+      }
+
+      var payload = opts.buildPayload
+        ? opts.buildPayload(form, email)
+        : { email: email };
+      payload.source = opts.source || "website";
+      payload.user_agent = navigator.userAgent;
 
       var submitBtn = form.querySelector("button[type='submit']");
       var originalLabel = submitBtn ? submitBtn.textContent : "";
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Joining…"; }
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending…"; }
       setStatus("", "");
+
+      function finish() {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      }
 
       if (!backendReady()) {
         // Graceful demo fallback if the backend isn't configured yet.
         window.setTimeout(function () {
-          if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
-          opts.onSuccess ? opts.onSuccess({ demo: true, email: email }) :
-            setStatus("Thanks! You're on the list. 🎉", "ok");
+          finish();
+          if (opts.onSuccess) opts.onSuccess({ demo: true, email: email });
+          else setStatus("Got it — you're in! 🎉", "ok");
         }, 600);
         return;
       }
 
-      submitSignup(payload).then(function (result) {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+      submitRow(opts.table, payload).then(function (result) {
+        finish();
         if (result.ok) {
           if (opts.onSuccess) opts.onSuccess({ email: email, duplicate: result.duplicate });
-          else setStatus(result.duplicate ? "You're already on the list! 🙌" : "You're on the list! 🎉", "ok");
+          else setStatus(result.duplicate ? "You're already in! 🙌" : "Got it — you're in! 🎉", "ok");
         } else {
-          console.error("Waitlist error:", result.status, result.message);
+          console.error("Form error:", result.status, result.message);
           setStatus("Something went wrong. Please try again in a moment.", "error");
         }
       }).catch(function (err) {
-        console.error("Waitlist network error:", err);
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
+        console.error("Form network error:", err);
+        finish();
         setStatus("Network hiccup — please check your connection and retry.", "error");
       });
     });
   }
 
-  /* ---------- Main waitlist form (with success panel) ---------- */
-  var mainForm = $("#waitlist-form");
-  var successPanel = $("#waitlist-success");
-  wireForm(mainForm, {
-    statusEl: $("#wl-status"),
-    source: "waitlist_section",
-    onSuccess: function (data) {
-      if (successPanel && mainForm) {
-        mainForm.hidden = true;
-        successPanel.hidden = false;
-        var msg = $("#success-msg");
-        if (msg && data.duplicate) msg.textContent = "Looks like you're already on the list — we've got you. Hang tight for early access!";
-        buildShare($("#success-share"));
-        successPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-      }
-    },
-  });
+  // Standard success behaviour: hide the form, show its success panel.
+  function successSwap(form, panel, duplicateMsgSel, duplicate) {
+    if (!form || !panel) return;
+    form.hidden = true;
+    panel.hidden = false;
+    if (duplicate && duplicateMsgSel) {
+      var msg = $(duplicateMsgSel);
+      if (msg) msg.textContent = msg.getAttribute("data-duplicate-msg") || msg.textContent;
+    }
+    panel.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
 
-  /* ---------- Hero inline form ---------- */
-  wireForm($("#hero-form"), {
-    source: "hero",
-    onSuccess: function () {
-      // Prefill + reveal the main form's success state, then jump there.
-      var heroEmail = $("#hero-email");
-      var wlEmail = $("#wl-email");
-      if (heroEmail && wlEmail) wlEmail.value = heroEmail.value;
-      if (successPanel && mainForm) {
-        mainForm.hidden = true;
-        successPanel.hidden = false;
-        buildShare($("#success-share"));
-      }
-      var target = document.getElementById("waitlist");
-      if (target) target.scrollIntoView({ behavior: "smooth" });
-    },
-  });
+  /* =========================================================
+     Page: index.html — coach application form
+     ========================================================= */
+  var applyForm = $("#apply-form");
+  if (applyForm) {
+    wireForm(applyForm, {
+      table: tables.coachApplications || "coach_applications",
+      statusEl: $("#apply-status"),
+      source: "coach_apply",
+      buildPayload: function (form, email) {
+        function v(name) {
+          var el = form.querySelector("[name='" + name + "']");
+          var val = el ? el.value.trim() : "";
+          return val || null;
+        }
+        var tiktok = v("tiktok_handle");
+        if (tiktok && tiktok.charAt(0) !== "@") tiktok = "@" + tiktok;
+        return {
+          email: email,
+          name: v("name"),
+          tiktok_handle: tiktok,
+          instagram_handle: v("instagram_handle"),
+          follower_bracket: v("follower_bracket"),
+          niche: v("niche"),
+          pitch: v("pitch"),
+        };
+      },
+      onSuccess: function (data) {
+        var msg = $("#apply-success-msg");
+        if (msg && data.duplicate) {
+          msg.textContent = "You've already applied — we're on it. We review every coach personally.";
+        }
+        successSwap(applyForm, $("#apply-success"));
+      },
+    });
+  }
 
-  /* ---------- Share buttons on success ---------- */
+  /* =========================================================
+     Page: victor.html — fan waitlist form
+     ========================================================= */
+  var waitlistForm = $("#waitlist-form");
+  if (waitlistForm) {
+    wireForm(waitlistForm, {
+      table: tables.waitlist || "waitlist",
+      statusEl: $("#wl-status"),
+      source: "victor_page",
+      buildPayload: function (form, email) {
+        var nameEl = form.querySelector("input[name='name']");
+        var goalEl = form.querySelector("select[name='goal']");
+        return {
+          email: email,
+          name: nameEl && nameEl.value.trim() ? nameEl.value.trim() : null,
+          goal: goalEl && goalEl.value ? goalEl.value : null,
+        };
+      },
+      onSuccess: function (data) {
+        var msg = $("#wl-success-msg");
+        if (msg && data.duplicate) {
+          msg.textContent = "You're already on Victor's list — we've got you. Hang tight for early access!";
+        }
+        successSwap(waitlistForm, $("#wl-success"));
+        buildShare($("#wl-share"));
+      },
+    });
+  }
+
+  /* ---------- Share buttons on success (victor page) ---------- */
   function buildShare(container) {
     if (!container || container.childElementCount) return;
     var shareUrl = window.location.origin && window.location.origin !== "null"
       ? window.location.origin + window.location.pathname : "";
-    var text = "I just joined the " + (cfg.brand || "Vice Wave") + " coaching waitlist 💪";
+    var creator = victor || {};
+    var text = "I just joined " + (creator.name || "my coach") + "'s coaching waitlist on " + (cfg.brand || "Repwave") + " 💪";
 
     if (navigator.share) {
       var btn = document.createElement("button");
@@ -213,15 +283,15 @@
       btn.type = "button";
       btn.textContent = "Share with a friend";
       btn.addEventListener("click", function () {
-        navigator.share({ title: cfg.brand || "Vice Wave", text: text, url: shareUrl }).catch(function () {});
+        navigator.share({ title: creator.name || cfg.brand, text: text, url: shareUrl }).catch(function () {});
       });
       container.appendChild(btn);
     }
-    if (cfg.social && cfg.social.tiktok) {
+    if (creator.social && creator.social.tiktok) {
       var a = document.createElement("a");
-      a.className = "btn btn--sm btn--light";
-      a.href = cfg.social.tiktok; a.target = "_blank"; a.rel = "noopener";
-      a.textContent = "Follow on TikTok";
+      a.className = "btn btn--sm btn--ghost";
+      a.href = creator.social.tiktok; a.target = "_blank"; a.rel = "noopener";
+      a.textContent = "Follow " + (creator.handle || "on TikTok");
       container.appendChild(a);
     }
   }

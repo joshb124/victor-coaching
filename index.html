@@ -3,53 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vice Wave Coaching — Fitness coaching, without the guesswork</title>
-  <meta name="description" content="Get coached by Vice Wave. Personalized training, nutrition and accountability to help you get fit and stay fit. Join the founding-member waitlist for early access." />
+  <title>Repwave — Turn your TikTok following into a coaching business</title>
+  <meta name="description" content="Repwave is the creator coaching platform: TikTok fitness creators become real coaches, their followers subscribe and train with them. Apply as a founding coach or find your coach." />
 
   <!-- Open Graph / social sharing -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Vice Wave Coaching" />
-  <meta property="og:description" content="Personalized fitness coaching from Vice Wave. Join the waitlist for early access and founding-member pricing." />
+  <meta property="og:title" content="Repwave — The creator coaching platform" />
+  <meta property="og:description" content="Your followers already trust you. Now train them. Apply to become a founding coach on Repwave." />
   <meta property="og:image" content="assets/img/og-image.svg" />
-  <meta name="theme-color" content="#ff2e93" />
+  <meta name="theme-color" content="#0a0a0f" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
-  <!-- Skip link for keyboard / screen-reader users -->
-  <a class="skip-link" href="#waitlist">Skip to waitlist</a>
+  <a class="skip-link" href="#apply">Skip to coach application</a>
 
-  <!-- Decorative background blobs -->
-  <div class="bg-decor" aria-hidden="true">
-    <span class="blob blob--1"></span>
-    <span class="blob blob--2"></span>
-    <span class="blob blob--3"></span>
-  </div>
+  <div class="bg-decor" aria-hidden="true"></div>
 
   <!-- ================= HEADER ================= -->
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <a class="logo" href="#top" aria-label="Vice Wave home">
+      <a class="logo" href="#top" aria-label="Repwave home">
         <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28" role="img" aria-hidden="true">
-            <path d="M2 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 4 8 8 8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+          <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true">
+            <path d="M4 22c4 0 4-12 8-12s4 12 8 12 4-12 8-12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
           </svg>
         </span>
-        <span class="logo-text" data-brand>Vice Wave</span>
+        <span data-brand>Repwave</span>
       </a>
 
       <nav class="nav" aria-label="Primary">
+        <a href="#coaches">For coaches</a>
+        <a href="#fans">For fans</a>
         <a href="#how">How it works</a>
-        <a href="#program">The program</a>
-        <a href="#coach">Your coach</a>
-        <a href="#faq">FAQ</a>
+        <a href="#roster">Coaches</a>
       </nav>
 
-      <a href="#waitlist" class="btn btn--sm btn--primary">Join the waitlist</a>
+      <a href="#apply" class="btn btn--sm btn--primary">Apply as a coach</a>
     </div>
   </header>
 
@@ -57,54 +51,172 @@
     <!-- ================= HERO ================= -->
     <section class="hero container">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> Now taking founding members</p>
+        <p class="eyebrow"><span class="pulse-dot" aria-hidden="true"></span> The creator coaching platform</p>
         <h1 class="hero-title">
-          Get fit with a coach<br />
-          who's <span class="hl">actually in your corner</span>
+          Your followers already trust you.<br />
+          <span class="hl">Now train them.</span>
         </h1>
         <p class="hero-sub">
-          Personalized training, simple nutrition and real accountability — built around
-          your body, your schedule and your goals. No cookie-cutter plans, no guesswork.
+          Repwave turns TikTok fitness creators into full-time coaches. Your audience
+          subscribes, you coach them at scale — personalized plans, check-ins, DMs and
+          all. We handle everything else.
         </p>
-
-        <form class="waitlist-inline" id="hero-form" novalidate>
-          <label class="sr-only" for="hero-email">Email address</label>
-          <input class="field" type="email" id="hero-email" name="email" placeholder="you@email.com" autocomplete="email" required />
-          <button class="btn btn--primary" type="submit">Get early access</button>
-        </form>
-        <p class="hero-note">Free to join the list · Founding-member pricing locked in · No spam, ever.</p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn btn--primary btn--lg">Apply to become a coach</a>
+          <a href="#roster" class="btn btn--ghost btn--lg">Find your coach</a>
+        </div>
+        <p class="hero-note">Founding cohort now open · Limited seats · Application takes 2 minutes</p>
       </div>
 
-      <div class="hero-card" aria-hidden="false">
-        <div class="coach-card">
-          <div class="coach-card-top">
-            <div class="avatar" aria-hidden="true">VW</div>
-            <div>
-              <p class="coach-card-name" data-brand>Vice Wave</p>
-              <p class="coach-card-role">Fitness coach · TikTok creator</p>
+      <!-- Pure-CSS creator dashboard mockup -->
+      <div class="phone-wrap" aria-hidden="true">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-head">
+              <span class="phone-avatar">VW</span>
+              <div>
+                <div class="phone-head-name">Vice Wave</div>
+                <div class="phone-head-sub">Coach dashboard</div>
+              </div>
             </div>
-            <span class="badge badge--live">Coaching soon</span>
-          </div>
-          <ul class="coach-card-stats">
-            <li><strong>1:1</strong><span>Personalized</span></li>
-            <li><strong>Weekly</strong><span>Check-ins</span></li>
-            <li><strong>Anywhere</strong><span>Train from home or gym</span></li>
-          </ul>
-          <div class="coach-card-foot">
-            <span class="stars" aria-hidden="true">★★★★★</span>
-            <span>Founding spots are limited</span>
+            <div class="phone-stats">
+              <div class="phone-stat"><strong>$12,480</strong><span>This month</span></div>
+              <div class="phone-stat"><strong>342</strong><span>Subscribers</span></div>
+            </div>
+            <div class="phone-row"><span>New check-ins to review</span><span class="dot">14</span></div>
+            <div class="phone-row"><span>Unread client DMs</span><span class="dot">27</span></div>
+            <div class="phone-row"><span>Plans auto-adjusted</span><span class="dot">96</span></div>
+            <div class="phone-cta">Post to your feed</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================= TRUST BAR ================= -->
-    <section class="trustbar" aria-label="What you get">
-      <div class="container trustbar-inner">
-        <div class="trust-item"><span aria-hidden="true">🎯</span> Plans built for your goals</div>
-        <div class="trust-item"><span aria-hidden="true">📱</span> Coaching in your pocket</div>
-        <div class="trust-item"><span aria-hidden="true">💬</span> Message your coach directly</div>
-        <div class="trust-item"><span aria-hidden="true">🔒</span> Cancel anytime</div>
+    <!-- ================= STAT STRIP ================= -->
+    <section class="statstrip" aria-label="Platform highlights">
+      <div class="container statstrip-inner">
+        <span class="stat-pill">Built for creators with 10k–10M followers</span>
+        <span class="stat-pill">Founding coaches lock in a higher rev share</span>
+        <span class="stat-pill">One live coach — more in vetting now</span>
+        <span class="stat-pill">Fans join free, subscribe when doors open</span>
+      </div>
+    </section>
+
+    <!-- ================= FOR COACHES ================= -->
+    <section class="section" id="coaches">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">For coaches</p>
+          <h2>Stop selling shoutouts. Start selling results. <span class="chip">Coming at launch</span></h2>
+          <p class="section-sub">Everything you need to run a real coaching business off the audience you already built.</p>
+        </div>
+
+        <div class="grid grid--4">
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📊</span>
+            <h3>Creator dashboard</h3>
+            <p>Revenue, subscribers, client progress — one screen, zero spreadsheets.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">💰</span>
+            <h3>You set the price</h3>
+            <p>Monthly subscriptions, premium 1:1 tiers, drop-in programs. Your rates, your rules.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">⚙️</span>
+            <h3>Coach hundreds, not dozens</h3>
+            <p>Plan templates + AI-assisted programming personalize at scale, so 500 clients doesn't mean 500 all-nighters.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📈</span>
+            <h3>Earnings &amp; analytics</h3>
+            <p>See what converts: which videos drive subs, who's about to churn, what your audience wants next.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🎬</span>
+            <h3>Content monetization</h3>
+            <p>Put your best tutorials, programs and meal guides behind the sub — your feed becomes a product.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">⚡</span>
+            <h3>Instant payouts</h3>
+            <p>Stripe-powered payouts on your schedule. No invoices, no chasing.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📲</span>
+            <h3>Bring your audience</h3>
+            <p>Link-in-bio tools and TikTok-native funnels turn followers into subscribers in two taps.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">✅</span>
+            <h3>Verified-coach badge</h3>
+            <p>Vetting keeps grifters out, so your badge actually means something.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOR FANS ================= -->
+    <section class="section section--raised" id="fans">
+      <div class="container">
+        <div class="section-head">
+          <p class="kicker">For fans</p>
+          <h2>Get coached by the creator who got you off the couch. <span class="chip">Coming at launch</span></h2>
+          <p class="section-sub">Subscribe to your favorite fitness creator and train with them — for real.</p>
+        </div>
+
+        <div class="grid grid--5">
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📋</span>
+            <h3>Plans from <em>your</em> creator</h3>
+            <p>Training built by the influencer you already follow — their methods, tuned to your body and schedule.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🍎</span>
+            <h3>Calories &amp; macros</h3>
+            <p>Log meals in seconds; your coach sees it and adjusts your targets.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🍽️</span>
+            <h3>Meal plans</h3>
+            <p>Real food you'll actually eat, matched to your goal and budget.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📸</span>
+            <h3>Progress tracking</h3>
+            <p>Photos, weigh-ins and PRs on one timeline you'll actually want to look back on.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">💬</span>
+            <h3>DM your coach</h3>
+            <p>A direct line to the person who programmed your training. Not a support bot.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🎥</span>
+            <h3>Weekly video check-ins</h3>
+            <p>Your coach reviews your week on camera and tells you exactly what to change.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🔒</span>
+            <h3>Exclusive content feed</h3>
+            <p>Form tutorials, behind-the-scenes prep, full days of eating — subscriber-only.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🏆</span>
+            <h3>Community &amp; challenges</h3>
+            <p>Leaderboards, team challenges and habit streaks with everyone on your coach's roster.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">⌚</span>
+            <h3>Syncs with wearables</h3>
+            <p>Apple Health, Google Fit and more feed straight into your check-ins.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🔴</span>
+            <h3>Live group workouts</h3>
+            <p>Train live with your coach and their community, wherever you are.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -113,173 +225,200 @@
       <div class="container">
         <div class="section-head">
           <p class="kicker">How it works</p>
-          <h2>Three steps to your strongest self</h2>
-          <p class="section-sub">Getting started is simple. Here's what happens once the doors open.</p>
+          <h2>Two sides. One platform.</h2>
         </div>
 
-        <ol class="steps">
-          <li class="step-card">
-            <span class="step-num">1</span>
-            <h3>Join the waitlist</h3>
-            <p>Drop your email below to grab a founding-member spot and be first in line when coaching opens.</p>
-          </li>
-          <li class="step-card">
-            <span class="step-num">2</span>
-            <h3>Tell us about you</h3>
-            <p>Share your goals, experience and schedule. Your coach builds a plan that fits your real life.</p>
-          </li>
-          <li class="step-card">
-            <span class="step-num">3</span>
-            <h3>Start training</h3>
-            <p>Follow your plan, check in each week, and adjust as you go. Progress you can actually feel.</p>
-          </li>
-        </ol>
+        <div class="tracks">
+          <div class="track track--volt">
+            <div class="track-title"><h3>Coaches</h3><span>from creator to business</span></div>
+            <ol>
+              <li>
+                <span class="tstep">1</span>
+                <div><strong>Apply</strong><p>Two minutes: your handles, your niche, your pitch.</p></div>
+              </li>
+              <li>
+                <span class="tstep">2</span>
+                <div><strong>Get verified</strong><p>We review every coach personally — credentials, content, audience.</p></div>
+              </li>
+              <li>
+                <span class="tstep">3</span>
+                <div><strong>Launch your coaching page</strong><p>Set your price, publish your programs, start earning from day one.</p></div>
+              </li>
+            </ol>
+          </div>
+
+          <div class="track track--ghost">
+            <div class="track-title"><h3>Fans</h3><span>from follower to trainee</span></div>
+            <ol>
+              <li>
+                <span class="tstep">1</span>
+                <div><strong>Pick your coach</strong><p>Find the creator whose content already gets you moving.</p></div>
+              </li>
+              <li>
+                <span class="tstep">2</span>
+                <div><strong>Subscribe</strong><p>One subscription unlocks their coaching, content and community.</p></div>
+              </li>
+              <li>
+                <span class="tstep">3</span>
+                <div><strong>Train with them every day</strong><p>Your plan, your check-ins, your coach in your pocket.</p></div>
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ================= PROGRAM PILLARS ================= -->
-    <section class="section section--tint" id="program">
+    <!-- ================= PLATFORM ================= -->
+    <section class="section section--raised">
       <div class="container">
         <div class="section-head">
-          <p class="kicker">The program</p>
-          <h2>Everything you need in one place</h2>
-          <p class="section-sub">Coaching that goes way beyond a PDF of workouts.</p>
+          <p class="kicker">The platform</p>
+          <h2>The boring stuff, handled.</h2>
         </div>
-
-        <div class="pillars">
-          <article class="pillar">
-            <span class="pillar-ico" aria-hidden="true">🏋️</span>
-            <h3>Custom training</h3>
-            <p>A program matched to your goals and equipment — whether that's a full gym or a pair of dumbbells at home.</p>
+        <div class="grid grid--4">
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">💳</span>
+            <h3>Payments that just work</h3>
+            <p>Subscriptions, upgrades and refunds handled by the platform — coaches never chase a payment.</p>
           </article>
-          <article class="pillar">
-            <span class="pillar-ico" aria-hidden="true">🥗</span>
-            <h3>Simple nutrition</h3>
-            <p>No crash diets. Flexible, sustainable habits that fit how you actually eat.</p>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">🛡️</span>
+            <h3>Every coach is vetted</h3>
+            <p>Application review plus credential and audience checks before anyone gets the badge.</p>
           </article>
-          <article class="pillar">
-            <span class="pillar-ico" aria-hidden="true">📈</span>
-            <h3>Weekly check-ins</h3>
-            <p>Track progress, celebrate wins and course-correct before you stall out.</p>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">📱</span>
+            <h3>iOS &amp; Android apps</h3>
+            <p>Coming with the full launch. The web waitlist gets in first.</p>
           </article>
-          <article class="pillar">
-            <span class="pillar-ico" aria-hidden="true">🤝</span>
-            <h3>Real accountability</h3>
-            <p>Direct messaging with your coach so you're never guessing or going it alone.</p>
+          <article class="feature">
+            <span class="feature-ico" aria-hidden="true">⭐</span>
+            <h3>Ratings &amp; reviews</h3>
+            <p>Real results from real subscribers keep quality honest.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ================= COACH / MARKETPLACE ================= -->
-    <section class="section" id="coach">
-      <div class="container coach-layout">
-        <div class="coach-photo" aria-hidden="true">
-          <div class="coach-photo-inner">VW</div>
-          <span class="coach-photo-tag">👋 Your coach</span>
-        </div>
-        <div class="coach-bio">
-          <p class="kicker">Meet your coach</p>
-          <!-- EDIT: Replace this bio with Vice Wave's real story & credentials -->
-          <h2 data-brand>Vice Wave</h2>
-          <p>
-            Vice Wave is a fitness creator who's helped a community of followers move
-            better, get stronger and build habits that last — one honest, no-hype video
-            at a time. Now that coaching is going one-on-one, you get that same energy
-            focused entirely on <em>you</em>.
-          </p>
-          <ul class="tick-list">
-            <li>Training that meets you where you are — beginner to advanced</li>
-            <li>Straight-talk coaching, zero shame, zero fads</li>
-            <li>Built for busy people who want results that stick</li>
-          </ul>
-          <div class="coach-links" id="coach-social"></div>
-        </div>
-      </div>
-
-      <!-- Marketplace framing: one coach now, more to come -->
+    <!-- ================= ROSTER ================= -->
+    <section class="section" id="roster">
       <div class="container">
-        <div class="marketplace-note">
-          <div>
-            <h3>The Vice Wave coaching roster</h3>
-            <p>Right now you're getting coached by Vice Wave himself. More hand-picked coaches are joining the platform soon — waitlist members hear first.</p>
-          </div>
-          <ul class="roster">
-            <li class="roster-card roster-card--live">
-              <span class="avatar avatar--sm" aria-hidden="true">VW</span>
-              <span class="roster-name" data-brand>Vice Wave</span>
-              <span class="roster-status">Accepting founding members</span>
-            </li>
-            <li class="roster-card roster-card--soon" aria-hidden="true">
-              <span class="avatar avatar--sm avatar--ghost">?</span>
-              <span class="roster-name">New coach</span>
-              <span class="roster-status">Coming soon</span>
-            </li>
-            <li class="roster-card roster-card--soon" aria-hidden="true">
-              <span class="avatar avatar--sm avatar--ghost">?</span>
-              <span class="roster-name">New coach</span>
-              <span class="roster-status">Coming soon</span>
-            </li>
-          </ul>
+        <div class="section-head">
+          <p class="kicker">The roster</p>
+          <h2>Coaches on Repwave</h2>
+          <p class="section-sub">One founding coach live today. The next seats are being vetted now — one of them could be yours.</p>
+        </div>
+
+        <div class="roster">
+          <article class="roster-card roster-card--live">
+            <span class="badge-live"><span class="pulse-dot" aria-hidden="true"></span> Founding coach</span>
+            <div class="roster-avatar" aria-hidden="true">VW</div>
+            <div class="roster-name">Vice Wave</div>
+            <div class="roster-handle">@vicewave</div>
+            <span class="roster-niche">Hypertrophy · No-BS training</span>
+            <div><a href="victor" class="btn btn--primary btn--sm">Visit Vice Wave →</a></div>
+          </article>
+
+          <article class="roster-card roster-card--ghost" aria-label="Coach spot available">
+            <div class="ghost-blur">
+              <div class="roster-avatar">?</div>
+              <div class="roster-name">Your name here</div>
+              <div class="roster-handle">@you</div>
+              <span class="roster-niche">Your niche</span>
+            </div>
+            <p class="roster-cta">This could be you — <a href="#apply">apply now</a></p>
+          </article>
+
+          <article class="roster-card roster-card--ghost" aria-label="Coach spot available">
+            <div class="ghost-blur">
+              <div class="roster-avatar">?</div>
+              <div class="roster-name">Coming soon</div>
+              <div class="roster-handle">@nextcoach</div>
+              <span class="roster-niche">In vetting</span>
+            </div>
+            <p class="roster-cta">Next coach announced soon</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- ================= WAITLIST ================= -->
-    <section class="section waitlist-section" id="waitlist">
+    <!-- ================= APPLY ================= -->
+    <section class="section section--raised" id="apply">
       <div class="container">
-        <div class="waitlist-box">
-          <div class="waitlist-intro">
-            <p class="kicker kicker--light">Founding members</p>
-            <h2>Be first through the door</h2>
-            <p>Join the waitlist to lock in founding-member pricing and get early access before public launch. It's free — you'll only hear from us when it counts.</p>
-            <ul class="perks">
-              <li>⚡ Early access before anyone else</li>
-              <li>🏷️ Founding-member price, locked forever</li>
-              <li>🎁 A launch-day bonus for the first members</li>
-            </ul>
-          </div>
+        <div class="section-head">
+          <p class="kicker">Founding cohort</p>
+          <h2>Claim your spot as a founding coach.</h2>
+          <p class="section-sub">Limited seats in the first cohort. Founding coaches lock in the best rev share for life.</p>
+        </div>
 
-          <div class="waitlist-formwrap">
-            <form class="waitlist-form" id="waitlist-form" novalidate>
+        <div class="form-panel">
+          <form id="apply-form" novalidate>
+            <div class="form-grid">
               <div class="form-row">
-                <label for="wl-name">First name <span class="opt">(optional)</span></label>
-                <input class="field" type="text" id="wl-name" name="name" placeholder="Alex" autocomplete="given-name" />
+                <label for="ap-name">Name <span class="opt">(optional)</span></label>
+                <input class="field" type="text" id="ap-name" name="name" placeholder="Alex Rivera" autocomplete="name" />
               </div>
               <div class="form-row">
-                <label for="wl-email">Email</label>
-                <input class="field" type="email" id="wl-email" name="email" placeholder="you@email.com" autocomplete="email" required />
+                <label for="ap-email">Email</label>
+                <input class="field" type="email" id="ap-email" name="email" placeholder="you@email.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="ap-tiktok">TikTok handle</label>
+                <input class="field" type="text" id="ap-tiktok" name="tiktok_handle" placeholder="@yourhandle" data-required required />
               </div>
               <div class="form-row">
-                <label for="wl-goal">Main goal <span class="opt">(optional)</span></label>
-                <select class="field" id="wl-goal" name="goal">
-                  <option value="">Pick one…</option>
-                  <option>Lose weight</option>
-                  <option>Build muscle</option>
-                  <option>Get stronger</option>
-                  <option>General fitness &amp; health</option>
-                  <option>Athletic performance</option>
+                <label for="ap-ig">Instagram <span class="opt">(optional)</span></label>
+                <input class="field" type="text" id="ap-ig" name="instagram_handle" placeholder="@yourhandle" />
+              </div>
+            </div>
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="ap-followers">Follower count</label>
+                <select class="field" id="ap-followers" name="follower_bracket">
+                  <option value="">Pick a range…</option>
+                  <option value="<10k">Under 10k</option>
+                  <option value="10k-50k">10k – 50k</option>
+                  <option value="50k-250k">50k – 250k</option>
+                  <option value="250k-1m">250k – 1M</option>
+                  <option value="1m+">1M+</option>
                 </select>
               </div>
-
-              <!-- Honeypot: hidden from humans, catches bots -->
-              <div class="hp" aria-hidden="true">
-                <label for="wl-company">Company</label>
-                <input type="text" id="wl-company" name="company" tabindex="-1" autocomplete="off" />
+              <div class="form-row">
+                <label for="ap-niche">Your niche</label>
+                <select class="field" id="ap-niche" name="niche">
+                  <option value="">Pick one…</option>
+                  <option>Lifting &amp; hypertrophy</option>
+                  <option>Weight loss</option>
+                  <option>Calisthenics</option>
+                  <option>Running &amp; endurance</option>
+                  <option>Yoga &amp; mobility</option>
+                  <option>Combat sports</option>
+                  <option>Other</option>
+                </select>
               </div>
-
-              <button class="btn btn--primary btn--block" type="submit" id="wl-submit">Claim my founding spot</button>
-              <p class="form-status" id="wl-status" role="status" aria-live="polite"></p>
-              <p class="form-fine">By joining you agree to receive occasional email updates. Unsubscribe anytime.</p>
-            </form>
-
-            <!-- Success state (hidden until submit succeeds) -->
-            <div class="waitlist-success" id="waitlist-success" hidden>
-              <div class="success-emoji" aria-hidden="true">🎉</div>
-              <h3>You're on the list!</h3>
-              <p id="success-msg">Keep an eye on your inbox — we'll reach out with early access before launch.</p>
-              <div class="success-share" id="success-share"></div>
             </div>
+            <div class="form-row">
+              <label for="ap-pitch">Why you? <span class="opt">(optional)</span></label>
+              <textarea class="field" id="ap-pitch" name="pitch" maxlength="2000" placeholder="What do you coach, and why does your audience trust you?"></textarea>
+            </div>
+
+            <!-- Honeypot: hidden from humans, catches bots -->
+            <div class="hp" aria-hidden="true">
+              <label for="ap-company">Company</label>
+              <input type="text" id="ap-company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <button class="btn btn--primary btn--block" type="submit">Apply for the founding cohort</button>
+            <p class="form-status" id="apply-status" role="status" aria-live="polite"></p>
+            <p class="form-fine">We review every application personally. By applying you agree to occasional email updates about your application and launch.</p>
+          </form>
+
+          <div class="success-panel" id="apply-success" hidden>
+            <div class="success-emoji" aria-hidden="true">🤝</div>
+            <h3>Application received.</h3>
+            <p id="apply-success-msg">We review every coach personally — expect to hear from us within a week.</p>
           </div>
         </div>
       </div>
@@ -295,28 +434,28 @@
 
         <div class="faq">
           <details>
-            <summary>When does coaching actually start?</summary>
-            <p>We're onboarding founding members in waves. Join the waitlist and you'll be among the first invited when spots open — before any public launch.</p>
+            <summary>What does Repwave cost coaches?</summary>
+            <p>Nothing up front. Repwave takes a percentage of subscription revenue — and founding coaches lock in the best rev share for life. Exact terms come with your acceptance.</p>
           </details>
           <details>
-            <summary>How much will it cost?</summary>
-            <p>Final pricing is being finalized, but waitlist members lock in a founding-member rate that stays lower than the public price for as long as you're a member.</p>
+            <summary>When do fans get access?</summary>
+            <p>We're launching coach by coach. Join a coach's waitlist (Vice Wave's is open now) and you'll get early access before their public launch.</p>
           </details>
           <details>
-            <summary>Do I need a gym?</summary>
-            <p>Nope. Your plan is built around whatever you have — a full gym, a home setup, or just your bodyweight and a bit of space.</p>
+            <summary>How does coach vetting work?</summary>
+            <p>Every application is reviewed by a human. We look at your content, your audience and your coaching chops before the verified badge goes on your profile.</p>
           </details>
           <details>
-            <summary>I'm a total beginner. Is this for me?</summary>
-            <p>Absolutely. Coaching is tailored to your level, so beginners get a safe, confidence-building start and experienced lifters get pushed further.</p>
+            <summary>Do I need certifications to coach?</summary>
+            <p>Certifications help but aren't the whole story — we care that you can actually coach and that your content backs it up. Tell us everything in your application.</p>
           </details>
           <details>
-            <summary>What if it's not for me?</summary>
-            <p>You can cancel anytime — no lock-in contracts. And joining the waitlist is completely free with no commitment.</p>
+            <summary>What will fans pay?</summary>
+            <p>Each coach sets their own subscription price. Early waitlist members lock in founding-fan pricing with their coach.</p>
           </details>
           <details>
-            <summary>Is my information safe?</summary>
-            <p>Yes. We only collect what you enter here, we never sell your data, and you can ask us to remove it at any time.</p>
+            <summary>Is anything live today?</summary>
+            <p>Honestly: signups. Coach applications and fan waitlists are real and reviewed; the full platform — payments, plans, tracking, DMs — arrives at launch. Early lists get in first.</p>
           </details>
         </div>
       </div>
@@ -325,9 +464,9 @@
     <!-- ================= FINAL CTA ================= -->
     <section class="final-cta">
       <div class="container">
-        <h2>Your next chapter starts with one email.</h2>
-        <p>Founding spots are limited. Grab yours before they're gone.</p>
-        <a href="#waitlist" class="btn btn--light btn--lg">Join the waitlist</a>
+        <h2>The first wave gets the best deal.</h2>
+        <p>Founding coach seats are limited — and they won't reopen at these terms.</p>
+        <a href="#apply" class="btn btn--primary btn--lg">Apply as a founding coach</a>
       </div>
     </section>
   </main>
@@ -336,28 +475,28 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <a class="logo logo--footer" href="#top">
+        <a class="logo" href="#top">
           <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
-              <path d="M2 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 4 8 8 8" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+            <svg viewBox="0 0 32 32" width="20" height="20" aria-hidden="true">
+              <path d="M4 22c4 0 4-12 8-12s4 12 8 12 4-12 8-12" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
             </svg>
           </span>
-          <span class="logo-text" data-brand>Vice Wave</span>
+          <span data-brand>Repwave</span>
         </a>
-        <p class="footer-tag" data-tagline>Coaching that actually sticks.</p>
+        <p class="footer-tag" data-tagline>The creator coaching platform.</p>
       </div>
       <nav class="footer-links" aria-label="Footer">
+        <a href="#coaches">For coaches</a>
+        <a href="#fans">For fans</a>
         <a href="#how">How it works</a>
-        <a href="#program">The program</a>
-        <a href="#coach">Your coach</a>
-        <a href="#faq">FAQ</a>
-        <a href="#waitlist">Join</a>
+        <a href="victor">Vice Wave</a>
+        <a href="#apply">Apply</a>
       </nav>
-      <div class="footer-social" id="footer-social"></div>
+      <div class="footer-social" data-social-links="platform" data-social-style="icon"></div>
     </div>
     <div class="container footer-legal">
-      <p>© <span id="year">2026</span> <span data-brand>Vice Wave</span> Coaching. All rights reserved.</p>
-      <p class="footer-mini">Not medical advice. Consult a physician before starting any exercise program.</p>
+      <p>© <span data-year>2026</span> <span data-brand>Repwave</span>. All rights reserved.</p>
+      <p>Not medical advice. Consult a physician before starting any exercise program.</p>
     </div>
   </footer>
 

@@ -1,25 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6a5cff"/>
-      <stop offset="1" stop-color="#ff2e93"/>
+    <linearGradient id="volt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ccff00"/>
+      <stop offset="1" stop-color="#7bdc00"/>
     </linearGradient>
-    <linearGradient id="hot" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ff2e93"/>
-      <stop offset="1" stop-color="#ff8a00"/>
-    </linearGradient>
+    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.9">
+      <stop offset="0" stop-color="#ccff00" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ccff00" stop-opacity="0"/>
+    </radialGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <g transform="translate(90,120)">
-    <rect x="0" y="0" width="72" height="72" rx="18" fill="url(#hot)" stroke="#17121f" stroke-width="4"/>
-    <path d="M14 46c8 0 8-18 16-18s8 18 16 18 8-18 16-18" transform="translate(0,-2)" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
-    <text x="92" y="50" font-family="'Space Grotesk',sans-serif" font-size="40" font-weight="700" fill="#fff">Vice Wave</text>
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <g transform="translate(90,110)">
+    <rect x="0" y="0" width="68" height="68" rx="18" fill="url(#volt)"/>
+    <path d="M13 44c7 0 7-20 14-20s7 20 14 20 7-20 14-20" transform="scale(0.72) translate(6,8)" fill="none" stroke="#0a0a0f" stroke-width="7" stroke-linecap="round"/>
+    <text x="88" y="48" font-family="'Archivo',sans-serif" font-size="42" font-weight="800" fill="#f4f4f0" letter-spacing="-1">Repwave</text>
   </g>
-  <text x="90" y="330" font-family="'Space Grotesk',sans-serif" font-size="86" font-weight="700" fill="#fff">Fitness coaching,</text>
-  <text x="90" y="428" font-family="'Space Grotesk',sans-serif" font-size="86" font-weight="700" fill="#b6ff3d">without the guesswork.</text>
-  <text x="92" y="510" font-family="'Inter',sans-serif" font-size="34" fill="#ffffff" opacity="0.9">Personalized training · nutrition · accountability</text>
-  <g transform="translate(90,545)">
-    <rect x="0" y="0" width="300" height="60" rx="30" fill="#b6ff3d" stroke="#17121f" stroke-width="4"/>
-    <text x="150" y="39" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="26" font-weight="700" fill="#17121f">Join the waitlist</text>
+  <text x="90" y="320" font-family="'Archivo',sans-serif" font-size="82" font-weight="900" fill="#f4f4f0" letter-spacing="-3">Your followers already</text>
+  <text x="90" y="412" font-family="'Archivo',sans-serif" font-size="82" font-weight="900" fill="#f4f4f0" letter-spacing="-3">trust you. <tspan fill="#ccff00">Now train them.</tspan></text>
+  <text x="92" y="490" font-family="'Inter',sans-serif" font-size="32" fill="#a3a3ad">The creator coaching platform · Founding cohort now open</text>
+  <g transform="translate(90,528)">
+    <rect x="0" y="0" width="330" height="62" rx="31" fill="url(#volt)"/>
+    <text x="165" y="40" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="25" font-weight="800" fill="#0a0a0f">Apply as a coach</text>
   </g>
 </svg>

@@ -1,87 +1,104 @@
-# Vice Wave Coaching — waitlist site
+# Repwave — creator coaching marketplace (pre-launch site)
 
-A fast, static landing page for **Vice Wave**, a fitness creator launching 1:1
-coaching. Right now the only functional piece is a **waitlist** that captures
-signups into Supabase. Framed as a coaching marketplace featuring one coach
-(Vice Wave) today, with room for more coaches later.
+Static two-page marketing site for **Repwave**, a marketplace where TikTok
+fitness influencers become gym coaches for their followers ("OnlyFans for gym
+coaching"). Nothing is functional yet except signup capture:
 
-- **No build step.** Plain HTML + CSS + vanilla JS. Open `index.html` and it works.
-- **Deploy anywhere.** Netlify, Vercel, Cloudflare Pages, GitHub Pages — any static host.
-- **Playful, vibrant, responsive, accessible** (keyboard nav, reduced-motion support, semantic HTML).
+- **`/` (index.html)** — the Repwave platform page. Influencers apply to become
+  founding coaches (**real** signups → Supabase `coach_applications`); fans can
+  browse the roster, which currently has one live coach.
+- **`/victor` (victor.html)** — creator profile page for **Vice Wave** (Victor,
+  @vicewave), the first coach. Fans join his waitlist (**real** signups →
+  Supabase `waitlist`).
+
+No build step: plain HTML + CSS + vanilla JS. Deployed on Vercel
+(`vercel.json` provides clean URLs + security headers). Dark & premium theme —
+near-black with a single volt (#ccff00) accent.
 
 ## Project structure
 
 ```
-index.html              # the whole page
+index.html                  # Repwave platform landing
+victor.html                 # Vice Wave creator page (served at /victor)
 favicon.svg
 robots.txt
-netlify.toml            # optional: static deploy + security headers
+vercel.json                 # cleanUrls + security headers
 assets/
-  css/styles.css
-  js/config.js          # ← edit brand, social links, Supabase keys here
-  js/main.js            # form handling + config wiring
-  img/og-image.svg      # social-share preview image
+  css/styles.css            # shared theme, both pages
+  js/config.js              # ← brand, socials, creator data, Supabase keys
+  js/main.js                # shared: config injection + form submission
+  img/og-image.svg          # index social-share image
+  img/og-image-victor.svg   # victor page social-share image
 ```
 
 ## Editing content
 
-Most of what you'll want to change lives in **`assets/js/config.js`**:
+Most tweakables live in **`assets/js/config.js`** (`window.RW_CONFIG`):
 
-- `brand` and `tagline`
-- `social` links (TikTok, Instagram, YouTube, contact email) — leave any as `""` to hide it
-- `supabase` connection (already configured)
+- Platform `brand` + `tagline` (rename "Repwave" here — pages use `data-brand`)
+- Platform `social` links; leave `""` to hide
+- `creators.victor` — his display name, handle, niche, socials and stat row
+- `supabase` connection + table names
 
-Copy, headings, FAQ, and the coach bio are plain text in `index.html`. Look for
-the `<!-- EDIT: ... -->` comment next to the coach bio to swap in Vice Wave's
-real story and credentials.
+Copy, headlines, feature cards and FAQ are plain text in the two HTML files.
 
-## How the waitlist works
+## How signups work
 
-Signups are inserted straight into a Supabase table from the browser.
+Both forms insert straight into Supabase from the browser (PostgREST).
 
-- **Project:** `vicewave-coaching`
-- **Table:** `public.waitlist` — columns: `id`, `name`, `email`, `goal`,
-  `source`, `user_agent`, `created_at`
-- **Security:** Row Level Security is **on**. The public (`anon`) key can only
-  **INSERT** — it cannot read, update, or delete rows. A unique index on the
-  email means duplicate signups are handled gracefully (treated as "already on
-  the list") instead of creating duplicates.
-- The publishable key in `config.js` is designed to be public; it's safe to
-  commit. The **secret** service key is never used in the browser and is not in
+- **Project:** `vicewave-coaching` (`xloognwmenzhgokiykrw`)
+- **Tables:**
+  - `public.waitlist` — fan waitlist (id, name, email, goal, source,
+    user_agent, created_at)
+  - `public.coach_applications` — influencer applications (id, name, email,
+    tiktok_handle, instagram_handle, follower_bracket, niche, pitch, source,
+    user_agent, created_at)
+- **Security:** Row Level Security on both tables; the public key can only
+  **INSERT** — it cannot read, update or delete. Unique index on
+  `lower(email)` per table → duplicate signups return 409, which the client
+  treats as "you're already in."
+- The publishable key in `config.js` is designed to be public and safe to
+  commit. The secret service key is never used in the browser and is not in
   this repo.
+- Both forms have a honeypot field (`company`) to silently drop bots.
 
 ### Viewing signups
 
-Open the Supabase dashboard → **Table editor → `waitlist`**, or **SQL editor**:
+Supabase dashboard → **Table editor**, or SQL editor:
 
 ```sql
+-- Fan waitlist
 select name, email, goal, source, created_at
-from waitlist
-order by created_at desc;
-```
+from waitlist order by created_at desc;
 
-To export, use the Table editor's CSV export.
+-- Coach applications
+select name, email, tiktok_handle, follower_bracket, niche, pitch, created_at
+from coach_applications order by created_at desc;
+```
 
 ## Running locally
 
-Because the page uses `fetch`, open it through a tiny web server (not `file://`):
+Serve over HTTP (fetch won't run from `file://`):
 
 ```bash
-# Python 3
 python3 -m http.server 8080
-# then visit http://localhost:8080
+# http://localhost:8080  and  http://localhost:8080/victor.html
 ```
+
+(Locally the clean URL `/victor` won't resolve — that's Vercel's `cleanUrls`;
+use `/victor.html`.)
 
 ## Deploying
 
-**Netlify (drag & drop):** drop this folder onto <https://app.netlify.com/drop>.
+Vercel project `vicewave-coaching` — deploy the repo root; no build command.
 
-**Any git-based host:** point it at this repo; publish directory is the repo
-root (`.`). No build command needed.
+## Roadmap (marketed on-site, not built)
 
-## Roadmap ideas (not built yet)
-
-- Real coach onboarding + profiles for additional marketplace coaches
-- Payments / subscriptions (e.g. Stripe)
-- Member dashboard, plan delivery, and check-ins
-- Automated welcome email on signup (e.g. Supabase Edge Function + Resend)
+- Fans: creator-built plans, calorie/macro tracking, meal plans, progress
+  tracking, coach DMs, weekly video check-ins, exclusive content feed,
+  community & challenges, wearable sync, live group workouts
+- Coaches: dashboard, pricing control, template/AI-assisted programming at
+  scale, analytics & earnings, content monetization, instant payouts,
+  audience-import funnels, verified badge
+- Platform: payments/subscriptions (Stripe), coach vetting, mobile apps,
+  ratings & reviews
