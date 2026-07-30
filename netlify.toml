@@ -1,0 +1,13 @@
+# Zero-config static deploy for Netlify.
+# (Vercel, Cloudflare Pages, GitHub Pages also work — this is just a static site.)
+[build]
+  publish = "."
+
+# Sensible security headers — helps the site read as trustworthy.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
