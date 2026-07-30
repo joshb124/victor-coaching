@@ -1,23 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="volt" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ccff00"/>
-      <stop offset="1" stop-color="#7bdc00"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.5" cy="0" r="0.9">
-      <stop offset="0" stop-color="#ccff00" stop-opacity="0.16"/>
-      <stop offset="1" stop-color="#ccff00" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="#0a0a0f"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <circle cx="600" cy="200" r="92" fill="#101017" stroke="url(#volt)" stroke-width="6"/>
-  <text x="600" y="226" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="70" font-weight="900" fill="#ccff00">VW</text>
-  <text x="600" y="376" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="76" font-weight="900" fill="#f4f4f0" letter-spacing="-2">Vice Wave</text>
-  <text x="600" y="426" text-anchor="middle" font-family="'Inter',sans-serif" font-size="30" fill="#a3a3ad">@vicewave · Founding coach on Repwave</text>
-  <g transform="translate(429,470)">
-    <rect x="0" y="0" width="342" height="62" rx="31" fill="url(#volt)"/>
-    <text x="171" y="40" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="25" font-weight="800" fill="#0a0a0f">Join Victor's waitlist</text>
+  <rect width="1200" height="630" fill="#e9e7e2"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#161513"/>
+  <g transform="translate(80,90)">
+    <rect x="0" y="0" width="150" height="150" fill="#161513"/>
+    <text x="75" y="102" text-anchor="middle" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#e9e7e2">VW</text>
+    <rect x="0" y="150" width="150" height="28" fill="#e8490f"/>
+    <text x="75" y="170" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="14" fill="#e9e7e2" letter-spacing="6">LIVE</text>
   </g>
-  <text x="600" y="588" text-anchor="middle" font-family="'Inter',sans-serif" font-size="22" fill="#6f6f7a">Founding-fan pricing · Limited spots</text>
+  <text x="270" y="200" font-family="'Anton','Arial Narrow',sans-serif" font-size="120" fill="#161513" letter-spacing="1">VICE WAVE</text>
+  <text x="274" y="250" font-family="'IBM Plex Mono',monospace" font-size="24" fill="#6e6c66" letter-spacing="2">@vicewave — verified founding coach</text>
+  <line x1="80" y1="330" x2="1120" y2="330" stroke="#161513" stroke-width="3"/>
+  <text x="80" y="404" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#161513" letter-spacing="1">YOUR PLAN. YOUR CHECK-INS.</text>
+  <g transform="translate(76,432) rotate(-1.2)">
+    <rect x="0" y="0" width="560" height="86" fill="#e8490f"/>
+    <text x="18" y="66" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#e9e7e2" letter-spacing="1">HIS FULL ATTENTION.</text>
+  </g>
+  <text x="80" y="590" font-family="'IBM Plex Mono',monospace" font-size="22" fill="#6e6c66" letter-spacing="3">WAITLIST OPEN — FOUNDING-FAN PRICING · REPWAVE</text>
 </svg>

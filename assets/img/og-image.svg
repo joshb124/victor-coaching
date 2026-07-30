@@ -1,26 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <defs>
-    <linearGradient id="volt" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#ccff00"/>
-      <stop offset="1" stop-color="#7bdc00"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="0.85" cy="0.1" r="0.9">
-      <stop offset="0" stop-color="#ccff00" stop-opacity="0.18"/>
-      <stop offset="1" stop-color="#ccff00" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1200" height="630" fill="#0a0a0f"/>
-  <rect width="1200" height="630" fill="url(#glow)"/>
-  <g transform="translate(90,110)">
-    <rect x="0" y="0" width="68" height="68" rx="18" fill="url(#volt)"/>
-    <path d="M13 44c7 0 7-20 14-20s7 20 14 20 7-20 14-20" transform="scale(0.72) translate(6,8)" fill="none" stroke="#0a0a0f" stroke-width="7" stroke-linecap="round"/>
-    <text x="88" y="48" font-family="'Archivo',sans-serif" font-size="42" font-weight="800" fill="#f4f4f0" letter-spacing="-1">Repwave</text>
+  <rect width="1200" height="630" fill="#e9e7e2"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#161513"/>
+  <g transform="translate(80,84)">
+    <rect x="0" y="0" width="52" height="52" fill="#e8490f"/>
+    <path d="M10 36c5.5 0 5.5-18 11-18s5.5 18 11 18 5.5-18 11-18" transform="scale(0.62) translate(6,10)" fill="none" stroke="#e9e7e2" stroke-width="7" stroke-linecap="square"/>
+    <text x="70" y="40" font-family="'Anton','Arial Narrow',sans-serif" font-size="38" fill="#161513" letter-spacing="1">REPWAVE</text>
   </g>
-  <text x="90" y="320" font-family="'Archivo',sans-serif" font-size="82" font-weight="900" fill="#f4f4f0" letter-spacing="-3">Your followers already</text>
-  <text x="90" y="412" font-family="'Archivo',sans-serif" font-size="82" font-weight="900" fill="#f4f4f0" letter-spacing="-3">trust you. <tspan fill="#ccff00">Now train them.</tspan></text>
-  <text x="92" y="490" font-family="'Inter',sans-serif" font-size="32" fill="#a3a3ad">The creator coaching platform · Founding cohort now open</text>
-  <g transform="translate(90,528)">
-    <rect x="0" y="0" width="330" height="62" rx="31" fill="url(#volt)"/>
-    <text x="165" y="40" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="25" font-weight="800" fill="#0a0a0f">Apply as a coach</text>
+  <text x="80" y="300" font-family="'Anton','Arial Narrow',sans-serif" font-size="104" fill="#161513" letter-spacing="1">YOUR FOLLOWERS</text>
+  <text x="80" y="404" font-family="'Anton','Arial Narrow',sans-serif" font-size="104" fill="#161513" letter-spacing="1">ALREADY TRUST YOU.</text>
+  <g transform="translate(76,438) rotate(-1.2)">
+    <rect x="0" y="0" width="740" height="112" fill="#e8490f"/>
+    <text x="20" y="88" font-family="'Anton','Arial Narrow',sans-serif" font-size="88" fill="#e9e7e2" letter-spacing="1">NOW TRAIN THEM.</text>
   </g>
+  <text x="80" y="600" font-family="'IBM Plex Mono',monospace" font-size="22" fill="#6e6c66" letter-spacing="3">THE CREATOR COACHING PLATFORM — FOUNDING COHORT OPEN</text>
 </svg>
