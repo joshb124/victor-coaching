@@ -26,6 +26,10 @@
 
 * { box-sizing: border-box; }
 
+/* Author display rules (e.g. form { display:grid }) must never defeat
+   the hidden attribute — the success-state swap depends on it. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
@@ -117,12 +121,12 @@ img, svg { max-width: 100%; }
 .header-cta {
   display: inline-flex; align-items: center; padding: 0 22px; margin-right: calc(-1 * var(--gutter));
   background: var(--blaze); color: #fff;
-  font-weight: 700; font-size: .92rem;
+  font-weight: 700; font-size: .92rem; white-space: nowrap;
 }
 .header-cta:hover { background: var(--rubber); }
 .header-back {
   display: inline-flex; align-items: center; margin-left: auto; margin-right: 18px;
-  font-weight: 500; font-size: .92rem; color: var(--steel);
+  font-weight: 500; font-size: .92rem; color: var(--steel); white-space: nowrap;
 }
 .header-back:hover { color: var(--rubber); }
 
@@ -535,6 +539,7 @@ textarea.field { resize: vertical; min-height: 92px; }
 }
 @media (max-width: 860px) {
   .nav { display: none; }
+  .header-cta { margin-left: auto; }
   .paths { grid-template-columns: 1fr; }
   .tracks { grid-template-columns: 1fr; }
   .track + .track { border-left: 0; border-top: 2px solid var(--rubber); }
@@ -542,11 +547,17 @@ textarea.field { resize: vertical; min-height: 92px; }
   .roster-card + .roster-card { border-left: 0; border-top: 2px solid var(--rubber); }
   .footer-inner { grid-template-columns: 1fr; }
 }
+@media (max-width: 640px) {
+  .header-back { display: none; }
+}
 @media (max-width: 560px) {
   .form-grid { grid-template-columns: 1fr; }
-  .header-cta { padding: 0 14px; }
-  .profile-statbar { width: 100%; }
-  .profile-statbar > div { flex: 1; padding: 10px 12px; }
+  .header-cta { padding: 0 14px; font-size: .84rem; }
+  .logo { font-size: 1.1rem; }
+  .profile-statbar { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .profile-statbar > div { padding: 10px 14px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .profile-statbar > div:nth-child(odd) { border-right: 1px solid var(--line); }
+  .profile-statbar > div:nth-last-child(-n+2) { border-bottom: 0; }
 }
 
 /* ---------- Reduced motion ---------- */
