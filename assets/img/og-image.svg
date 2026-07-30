@@ -1,16 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#e9e7e2"/>
-  <rect x="0" y="0" width="1200" height="10" fill="#161513"/>
-  <g transform="translate(80,84)">
-    <rect x="0" y="0" width="52" height="52" fill="#e8490f"/>
-    <path d="M10 36c5.5 0 5.5-18 11-18s5.5 18 11 18 5.5-18 11-18" transform="scale(0.62) translate(6,10)" fill="none" stroke="#e9e7e2" stroke-width="7" stroke-linecap="square"/>
-    <text x="70" y="40" font-family="'Anton','Arial Narrow',sans-serif" font-size="38" fill="#161513" letter-spacing="1">REPWAVE</text>
+  <rect width="1200" height="630" fill="#22252a"/>
+  <g transform="translate(80,240)">
+    <circle cx="34" cy="10" r="30" fill="#eef0ee"/>
+    <circle cx="34" cy="10" r="9" fill="#22252a"/>
+    <text x="90" y="42" font-family="'Anton','Arial Narrow',sans-serif" font-size="110" fill="#eef0ee">levo</text>
   </g>
-  <text x="80" y="300" font-family="'Anton','Arial Narrow',sans-serif" font-size="104" fill="#161513" letter-spacing="1">YOUR FOLLOWERS</text>
-  <text x="80" y="404" font-family="'Anton','Arial Narrow',sans-serif" font-size="104" fill="#161513" letter-spacing="1">ALREADY TRUST YOU.</text>
-  <g transform="translate(76,438) rotate(-1.2)">
-    <rect x="0" y="0" width="740" height="112" fill="#e8490f"/>
-    <text x="20" y="88" font-family="'Anton','Arial Narrow',sans-serif" font-size="88" fill="#e9e7e2" letter-spacing="1">NOW TRAIN THEM.</text>
+  <text x="82" y="360" font-family="'Archivo',sans-serif" font-size="34" fill="#a9adb2">Where fitness creators coach the people who follow them.</text>
+  <g transform="translate(80,420)">
+    <rect x="0" y="0" width="240" height="64" fill="#2c3036" stroke="#0e7a55" stroke-width="0"/>
+    <rect x="0" y="0" width="6" height="64" fill="#0e7a55"/>
+    <text x="28" y="41" font-family="'Anton','Arial Narrow',sans-serif" font-size="30" fill="#eef0ee">I coach</text>
   </g>
-  <text x="80" y="600" font-family="'IBM Plex Mono',monospace" font-size="22" fill="#6e6c66" letter-spacing="3">THE CREATOR COACHING PLATFORM — FOUNDING COHORT OPEN</text>
+  <g transform="translate(344,420)">
+    <rect x="0" y="0" width="240" height="64" rx="22" fill="#1d5fd6"/>
+    <text x="28" y="41" font-family="'Anton','Arial Narrow',sans-serif" font-size="30" fill="#ffffff">I train</text>
+  </g>
+  <text x="82" y="580" font-family="'IBM Plex Mono',monospace" font-size="20" fill="#676c72" letter-spacing="2">LEVO — LATIN, I LIFT</text>
 </svg>

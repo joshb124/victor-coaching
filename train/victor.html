@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vice Wave (@vicewave) — coach on Levo</title>
+  <meta name="description" content="Vice Wave (Victor) is a founding coach on Levo. Join his free waitlist — waitlist members get in first when his roster opens." />
+
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Vice Wave — coach on Levo" />
+  <meta property="og:description" content="I got loud on TikTok so you'd get strong in real life. Join Victor's waitlist." />
+  <meta property="og:image" content="../assets/img/og-image-victor.svg" />
+  <meta name="theme-color" content="#eef0ee" />
+
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="side-train">
+  <a class="skip-link" href="#waitlist">Skip to waitlist</a>
+
+  <div class="side-strip" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="../" aria-label="Levo home">
+        <span class="plate" aria-hidden="true"></span> <span data-brand>levo</span>
+      </a>
+      <span class="header-side">Train</span>
+      <nav class="nav" aria-label="Train site">
+        <a href="../train#coaches">All coaches</a>
+        <a href="#waitlist">Waitlist</a>
+      </nav>
+      <a class="switch-link" href="../">Switch side</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Profile head -->
+    <div class="profile-cover" aria-hidden="true"></div>
+    <section class="container profile-head">
+      <div class="profile-topline">
+        <div class="profile-avatar" aria-hidden="true">VW</div>
+        <div>
+          <div class="profile-idrow">
+            <h1 class="profile-name" data-creator-name>Vice Wave</h1>
+            <span class="badge-founding">Founding coach</span>
+          </div>
+          <p class="profile-handle"><span data-creator-handle>@vicewave</span> · Hypertrophy · No-BS training</p>
+        </div>
+      </div>
+      <p class="profile-bio">
+        I'm <strong>Victor</strong>. I got loud on TikTok so you'd get strong in real life.
+        My first roster gets me at my most locked-in: your plan, your check-ins, my full attention.
+      </p>
+      <div class="profile-socialrow" data-social-links="victor"></div>
+    </section>
+
+    <!-- Feed + waitlist -->
+    <div class="container profile-grid">
+      <div>
+        <p class="feed-label">Waiting behind the waitlist</p>
+        <div class="locked-list">
+          <div class="locked-card" role="button" tabindex="0" aria-expanded="false"
+               aria-label="Locked post: Full push-day breakdown. Activate to learn how it unlocks.">
+            <span class="locked-strip" aria-hidden="true">Locked</span>
+            <p class="locked-tag">Training</p>
+            <p class="locked-title">Full push-day breakdown</p>
+            <p class="locked-note">Unlocks for waitlist members when doors open at launch.</p>
+          </div>
+          <div class="locked-card" role="button" tabindex="0" aria-expanded="false"
+               aria-label="Locked post: What I actually eat, full day. Activate to learn how it unlocks.">
+            <span class="locked-strip" aria-hidden="true">Locked</span>
+            <p class="locked-tag">Nutrition</p>
+            <p class="locked-title">What I actually eat (full day)</p>
+            <p class="locked-note">Unlocks for waitlist members when doors open at launch.</p>
+          </div>
+          <div class="locked-card" role="button" tabindex="0" aria-expanded="false"
+               aria-label="Locked post: Form check, fix your RDL. Activate to learn how it unlocks.">
+            <span class="locked-strip" aria-hidden="true">Locked</span>
+            <p class="locked-tag">Technique</p>
+            <p class="locked-title">Form check: fix your RDL</p>
+            <p class="locked-note">Unlocks for waitlist members when doors open at launch.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside id="waitlist">
+        <div class="join-card">
+          <div class="join-head">
+            <h2>Join Victor's waitlist</h2>
+            <span class="join-free">Free</span>
+          </div>
+          <div class="join-body">
+            <p class="join-blurb">Spots are limited when his roster opens. The waitlist goes first, at day-one pricing.</p>
+
+            <form id="waitlist-form" novalidate>
+              <div class="form-row">
+                <label for="wl-name">First name <span class="opt">(optional)</span></label>
+                <input class="field" type="text" id="wl-name" name="name" autocomplete="given-name" />
+                <p class="field-error" id="wl-name-error" hidden></p>
+              </div>
+              <div class="form-row">
+                <label for="wl-email">Email</label>
+                <input class="field" type="email" id="wl-email" name="email" autocomplete="email"
+                       data-required data-required-msg="Enter your email — it's how you'll get your invite." required />
+                <p class="field-error" id="wl-email-error" hidden></p>
+              </div>
+              <div class="form-row">
+                <label for="wl-goal">Main goal <span class="opt">(optional)</span></label>
+                <select class="field" id="wl-goal" name="goal">
+                  <option value="">Pick one</option>
+                  <option>Lose weight</option>
+                  <option>Build muscle</option>
+                  <option>Get stronger</option>
+                  <option>General fitness &amp; health</option>
+                  <option>Athletic performance</option>
+                </select>
+                <p class="field-error" id="wl-goal-error" hidden></p>
+              </div>
+
+              <!-- Honeypot: hidden from humans, catches bots -->
+              <div class="hp" aria-hidden="true">
+                <label for="wl-company">Company</label>
+                <input type="text" id="wl-company" name="company" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <button class="btn btn--block" type="submit">Join Victor's waitlist</button>
+              <p class="form-status" role="alert"></p>
+              <p class="join-fine">Free to join · No spam · Unsubscribe anytime</p>
+            </form>
+
+            <div class="success-panel" id="wl-success" hidden style="padding: 4px 0 0;">
+              <h3>You're on the list</h3>
+              <p id="wl-success-msg">You'll get an email with early access before Victor's roster opens publicly. Nothing else lands in your inbox until then.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="wordmark" href="../"><span class="plate" aria-hidden="true"></span> <span data-brand>levo</span></a>
+      <div class="footer-lines">
+        <p>Levo — Latin, <em>I lift</em> · © <span data-year>2026</span></p>
+        <p>Not medical advice — consult a physician before training.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

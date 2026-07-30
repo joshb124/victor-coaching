@@ -1,19 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
-  <rect width="1200" height="630" fill="#e9e7e2"/>
-  <rect x="0" y="0" width="1200" height="10" fill="#161513"/>
-  <g transform="translate(80,90)">
-    <rect x="0" y="0" width="150" height="150" fill="#161513"/>
-    <text x="75" y="102" text-anchor="middle" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#e9e7e2">VW</text>
-    <rect x="0" y="150" width="150" height="28" fill="#e8490f"/>
-    <text x="75" y="170" text-anchor="middle" font-family="'IBM Plex Mono',monospace" font-size="14" fill="#e9e7e2" letter-spacing="6">LIVE</text>
+  <rect width="1200" height="630" fill="#eef0ee"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#1d5fd6"/>
+  <g transform="translate(80,110)">
+    <rect x="0" y="0" width="150" height="150" fill="#22252a"/>
+    <text x="75" y="100" text-anchor="middle" font-family="'Anton','Arial Narrow',sans-serif" font-size="60" fill="#eef0ee">VW</text>
   </g>
-  <text x="270" y="200" font-family="'Anton','Arial Narrow',sans-serif" font-size="120" fill="#161513" letter-spacing="1">VICE WAVE</text>
-  <text x="274" y="250" font-family="'IBM Plex Mono',monospace" font-size="24" fill="#6e6c66" letter-spacing="2">@vicewave — verified founding coach</text>
-  <line x1="80" y1="330" x2="1120" y2="330" stroke="#161513" stroke-width="3"/>
-  <text x="80" y="404" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#161513" letter-spacing="1">YOUR PLAN. YOUR CHECK-INS.</text>
-  <g transform="translate(76,432) rotate(-1.2)">
-    <rect x="0" y="0" width="560" height="86" fill="#e8490f"/>
-    <text x="18" y="66" font-family="'Anton','Arial Narrow',sans-serif" font-size="64" fill="#e9e7e2" letter-spacing="1">HIS FULL ATTENTION.</text>
+  <text x="270" y="210" font-family="'Anton','Arial Narrow',sans-serif" font-size="110" fill="#22252a">VICE WAVE</text>
+  <text x="274" y="256" font-family="'IBM Plex Mono',monospace" font-size="22" fill="#676c72" letter-spacing="2">@vicewave · founding coach on levo</text>
+  <line x1="80" y1="330" x2="1120" y2="330" stroke="#22252a" stroke-width="3"/>
+  <text x="80" y="410" font-family="'Archivo',sans-serif" font-size="40" font-weight="700" fill="#22252a">"I got loud on TikTok so you'd get strong in real life."</text>
+  <g transform="translate(80,460)">
+    <rect x="0" y="0" width="330" height="64" fill="#1d5fd6"/>
+    <text x="165" y="41" text-anchor="middle" font-family="'Archivo',sans-serif" font-size="24" font-weight="700" fill="#ffffff">Join Victor's waitlist</text>
   </g>
-  <text x="80" y="590" font-family="'IBM Plex Mono',monospace" font-size="22" fill="#6e6c66" letter-spacing="3">WAITLIST OPEN — FOUNDING-FAN PRICING · REPWAVE</text>
+  <text x="80" y="586" font-family="'IBM Plex Mono',monospace" font-size="19" fill="#676c72" letter-spacing="2">FREE TO JOIN — WAITLIST GETS IN FIRST</text>
 </svg>

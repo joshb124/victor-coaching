@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/victor", "destination": "/train/victor", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
