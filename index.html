@@ -3,42 +3,139 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Levo — coaching between creators and the people who follow them</title>
-  <meta name="description" content="Levo is where fitness creators coach the people who follow them. Coaches run a real business; clients train with the creator they already trust." />
+  <title>Levo — your favorite creator is now your coach</title>
+  <meta name="description" content="Levo is where fitness creators coach the people who follow them. Real plans, real check-ins, a coach in your chat. Train with a creator, or coach your audience." />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Levo" />
-  <meta property="og:description" content="Where fitness creators coach the people who follow them. I coach — or — I train." />
+  <meta property="og:description" content="Where fitness creators coach the people who follow them. Train with a creator, or coach your audience." />
   <meta property="og:image" content="assets/img/og-image.svg" />
-  <meta name="theme-color" content="#22252a" />
+  <meta name="theme-color" content="#ffffff" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-<body class="door">
-  <main class="door-main">
-    <h1 class="wordmark"><span class="plate" aria-hidden="true"></span> <span data-brand>levo</span></h1>
-    <p class="door-line">Where fitness creators coach the people who follow them.</p>
+<body>
+  <a class="skip-link" href="#choose">Skip to choose your side</a>
 
-    <nav class="door-entries" aria-label="Choose your side">
-      <a class="door-entry door-entry--coach" href="coaches">
-        <span class="de-role">I coach</span>
-        <p class="de-sub">Turn your audience into a coaching business.</p>
-        <span class="de-meta" aria-hidden="true">roster<br />pricing<br />payouts</span>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="wordmark" href="./" aria-label="Levo home">
+        <span class="plate" aria-hidden="true"></span> <span data-brand>levo</span>
       </a>
-      <a class="door-entry door-entry--train" href="train">
-        <span class="de-role">I train</span>
-        <p class="de-sub">Train with the creator you already follow.</p>
-        <span class="de-meta" aria-hidden="true">your plan<br />your coach<br />your pace</span>
-      </a>
-    </nav>
+      <nav class="nav" aria-label="Main">
+        <a href="train">Train</a>
+        <a href="coaches">Coach</a>
+      </nav>
+      <a href="train" class="header-cta">Find your coach</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview hero -->
+    <section class="home-hero">
+      <div class="container home-hero-grid">
+        <div>
+          <h1 class="home-title">Your favorite creator is now <span class="hl">your coach.</span></h1>
+          <p class="home-sub">
+            <span data-brand>levo</span> is where fitness creators coach the people who
+            follow them. <strong>A real plan, real check-ins, and your coach in your
+            chat</strong> — not another workout video in your feed.
+          </p>
+        </div>
+
+        <!-- Illustrative coaching chat. No invented stats. -->
+        <div class="phone" aria-label="Preview of coaching chat">
+          <div class="phone-screen">
+            <div class="chat-head">
+              <span class="chat-ava" aria-hidden="true">VW</span>
+              <div>
+                <p class="chat-who">Coach Victor</p>
+                <p class="chat-sub">Your coach</p>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="bubble bubble--coach">Morning! Here's today. Tell me how set 3 feels.</div>
+              <div class="workout-card">
+                <p class="wc-tag">Today · Push day</p>
+                <p class="wc-title">Upper body — 45 min</p>
+                <ul>
+                  <li>Bench press · 4 sets</li>
+                  <li>Incline DB press · 3 sets</li>
+                  <li>Cable fly · 3 sets</li>
+                </ul>
+              </div>
+              <div class="bubble bubble--me">Done ✓ set 3 was heavy but clean</div>
+              <div class="bubble bubble--coach">That's what I want. Same weight Thursday, then we move up.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works (overview) -->
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title">How <span data-brand>levo</span> works</h2>
+        </div>
+        <ol class="steps">
+          <li><strong>Creators become coaches</strong><p>Fitness creators open a real coaching roster — their plans, their pricing, their people.</p></li>
+          <li><strong>Followers become clients</strong><p>You pick the creator you already trust and join their roster.</p></li>
+          <li><strong>Content becomes coaching</strong><p>Personal plans, weekly check-ins and a coach who answers your messages.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Choose your side -->
+    <section class="section" id="choose">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2 class="section-title">Which side are you on?</h2>
+        </div>
+        <div class="paths">
+          <div class="path-card path-card--train">
+            <span class="path-tag">For followers</span>
+            <h3 class="path-title">Train with your creator</h3>
+            <p class="path-desc">Turn their content into your coaching.</p>
+            <ul class="path-list">
+              <li>A plan built for you, by them</li>
+              <li>DM your coach directly</li>
+              <li>Weekly video check-ins</li>
+            </ul>
+            <a href="train" class="btn">Start training</a>
+          </div>
+          <div class="path-card path-card--coach">
+            <span class="path-tag">For creators</span>
+            <h3 class="path-title">Coach your audience</h3>
+            <p class="path-desc">Turn your following into a coaching business.</p>
+            <ul class="path-list">
+              <li>Your pricing, your roster</li>
+              <li>Instant payouts</li>
+              <li>We handle everything that isn't coaching</li>
+            </ul>
+            <a href="coaches" class="btn">Become a coach</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer class="door-foot">
-    <p>Levo — Latin, <em>I lift</em>. Not medical advice — consult a physician before training.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="wordmark" href="./"><span class="plate" aria-hidden="true"></span> <span data-brand>levo</span></a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="train">Train</a>
+        <a href="coaches">Coach</a>
+      </nav>
+      <div class="footer-lines">
+        <p>Levo — Latin, <em>I lift</em> · © <span data-year>2026</span></p>
+        <p>Not medical advice — consult a physician before training.</p>
+      </div>
+    </div>
   </footer>
 
   <script src="assets/js/config.js"></script>

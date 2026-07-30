@@ -156,7 +156,7 @@
       payload.user_agent = navigator.userAgent;
 
       var submitBtn = form.querySelector("button[type='submit']");
-      var label = submitBtn.textContent;
+      var label = submitBtn.innerHTML;
       var status = form.querySelector(".form-status");
       submitBtn.disabled = true;
       submitBtn.textContent = "Sending…";
@@ -164,9 +164,9 @@
 
       function fail(message) {
         submitBtn.disabled = false;
-        submitBtn.textContent = label;
+        submitBtn.innerHTML = label;
         if (status) {
-          status.textContent = message + " Your answers are still here — press " + label.toLowerCase() + " to retry.";
+          status.textContent = message + " Your answers are still here — try again.";
           status.classList.add("is-error");
         }
       }
@@ -185,7 +185,7 @@
           return;
         }
         submitBtn.disabled = false;
-        submitBtn.textContent = label;
+        submitBtn.innerHTML = label;
         if (result.duplicate && opts.duplicateMsgEl) {
           var el = $(opts.duplicateMsgEl);
           if (el) el.textContent = opts.duplicateMsg;
